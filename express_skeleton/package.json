@@ -1,0 +1,19 @@
+{
+  "name": "express_skeleton",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "karma"
+  },
+  "keywords": [
+    "express",
+    "js",
+    "skeleton"
+  ],
+  "author": "Ilias Musin",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
