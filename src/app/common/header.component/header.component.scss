@@ -1,0 +1,23 @@
+@import '../../../scss/variables.scss';
+.header {
+  height: $header-height;
+  background: $main-color;
+  padding: 10px 10%;
+
+  &__breadcrumbs {
+    vertical-align: top;
+    margin-left: 50px;
+    display: inline-block;
+    height: 100%;
+  }
+
+  &__login {
+    float: right;
+    cursor: pointer;
+  }
+
+  &:after{
+    clear: both;
+    content: '';
+  }
+}

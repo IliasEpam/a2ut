@@ -1,0 +1,11 @@
+<label class="date-input__label">
+    <span class="date-input__title">{{inputName}}</span>  
+    <input class="date-input__input" 
+        (change)="onChange($event)" 
+        (keyup)="onChange($event)"
+        [value]="currentValue || ''"
+        name="{{inputName}}"
+        placeholder="date"
+        type="text"
+    />
+</label>

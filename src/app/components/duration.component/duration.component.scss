@@ -1,0 +1,32 @@
+@import '../../../scss/variables.scss';
+.duration-input {
+  &:host {
+    display: block;
+    &.ng-invalid.ng-dirty {
+      border: 1px solid red;
+    }
+  }
+  &__label {
+    display: block;
+    margin-bottom: 10px;
+
+    &:after {
+      content:"";
+      clear: both;
+      display: table;
+    }
+  }
+
+  &__title {
+      width: 100px;
+      display: inline-block;
+      overflow: hidden;
+      vertical-align: top;
+  }
+
+  &__input {
+    margin-left: 10px;
+    max-width: 300px;
+    width: 100px;
+  }
+}

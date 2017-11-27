@@ -1,0 +1,24 @@
+<div class="course" [courseBorder]="courseItem.date" [ngClass]="{'course--favorite': courseItem.isFavorite}">
+    <div class="course__info">
+        <div class="course__data">
+            <div class="course__title">
+                {{courseItem.title | uppercase}}
+                <div *ngIf="courseItem.isFavorite" class="course__star">
+                </div>
+            </div>
+            <div class="course__duration">
+                {{courseItem.duration | formatTime}}
+            </div>
+            <div class="course__date">
+                {{courseItem.date | date}}
+            </div>
+        </div>
+        <div class="course__description">
+            {{courseItem.description}}
+        </div>
+    </div>
+    <div class="course__panel">
+        <button class="course__button"  routerLink="./{{courseItem.id}}">Edit</button>
+        <button class="course__button" (click)="onDeleteCourse()">Delete</button>
+    </div>
+</div>

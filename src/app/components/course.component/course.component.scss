@@ -1,0 +1,61 @@
+@import '../../../scss/variables.scss';
+.course {
+  border: 1px solid black;
+  margin: 20px;
+  padding: 10px;
+  display: inline-flex;
+  justify-content: space-between;
+  height: 100px;
+  text-align: left;
+  width: 70%;
+  background-color: white;
+
+  &--favorite {
+    background-color: lightcoral;
+  }
+
+  &__info {
+    width: 80%;
+  }
+
+  &__data {
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    display: inline-block;
+    margin-right: 50px;
+    width: 200px;
+  }
+
+  &__duration {
+    display: inline-block;
+    margin-right: 50px;
+  }
+
+  &__date {
+    float: right;
+  }
+
+  &__panel {
+    width: 17%;
+    text-align: center;
+  }
+
+  &__button {
+    display: inline-block;
+    width: 80%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  &__star {
+    background: url(http://pngimages.net/sites/default/files/star-png-image-2768.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin-left: 10px;
+    width: 20px;
+    height: 20px;
+  }
+}

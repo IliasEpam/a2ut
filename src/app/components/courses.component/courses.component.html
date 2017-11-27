@@ -1,0 +1,13 @@
+<ment-toolbox (broadcastSearch)='onSearch($event)'></ment-toolbox>
+<div class="courses">
+    <div class="courses__none">
+        <select (change)="onSortingOption($event)">
+            <option *ngFor = "let option of sortOptions" [value]="option.value">{{option.name}}</option>
+        </select>
+    </div>
+    <ment-course *ngFor="let course of (courses | orderBy: sortConfig)" [courseItem]="course" (deleteCourse)='onDeleteCourse($event)'></ment-course>
+    <div *ngIf="isNoCourses()" class="courses__none"> No data. Feel free to add some course.</div>
+    <div class="courses__more-courses-wrapper">
+        <button (click)="getMoreCourses()">More courses</button>
+    </div>
+</div>

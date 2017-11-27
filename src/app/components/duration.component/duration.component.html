@@ -1,0 +1,12 @@
+<label class="duration-input__label">
+    <span class="duration-input__title">{{inputName}}</span>  
+    <input class="duration-input__input" 
+        (change)="onChange($event)" 
+        (keyup)="onChange($event)"
+        [value]="currentValue || ''"
+        name="{{inputName}}"
+        placeholder="duration"
+        type="text"
+    />
+    <span>{{currentValue || 0 | formatTime}}</span>
+</label>

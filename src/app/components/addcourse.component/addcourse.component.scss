@@ -1,0 +1,62 @@
+@import '../../../scss/variables.scss';
+.add-course {
+    width: 500px;
+    padding: 20px;
+    margin: auto;
+  
+    &__label {
+      display: block;
+      margin-bottom: 10px;
+  
+      &:after {
+        content:"";
+        clear: both;
+        display: table;
+      }
+    }
+
+    &__input-title {
+        width: 100px;
+        display: inline-block;
+        overflow: hidden;
+        vertical-align: top;
+    }
+  
+    &__input {
+      margin-left: 10px;
+      max-width: 300px;
+      width: 300px;
+
+      &--date {
+          width: 150px;
+      }
+
+      &--authors {
+          width: 100px;
+      }
+
+      &--duration {
+          width: 100px;
+      }
+    }
+
+    &__input.ng-touched.ng-invalid {
+        border-color:red;
+    }
+
+    &__button-wrapper{
+        text-align: center;
+    }
+
+    &__button {
+        margin: 10px 0 0 10px;
+    }
+
+    &__error {
+        display: block;
+        text-align: center;
+        font-size: 10px;
+        color: red;
+    }
+  }
+  

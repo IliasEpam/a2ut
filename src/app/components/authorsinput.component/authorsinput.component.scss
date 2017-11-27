@@ -1,0 +1,38 @@
+@import '../../../scss/variables.scss';
+
+.authors-input {
+  &:host {
+    display: block;
+    &.ng-invalid.ng-dirty {
+      border: 1px solid red;
+    }
+  }
+  &__label {
+    display: block;
+    margin-bottom: 10px;
+
+    &:after {
+      content:"";
+      clear: both;
+      display: table;
+    }
+  }
+
+  &__title {
+      width: 100px;
+      display: inline-block;
+      overflow: hidden;
+      vertical-align: top;
+  }
+
+  &__wrapper {
+    display: inline-block;
+    width: 250px;
+  }
+
+  &__input {
+    margin-left: 10px;
+    max-width: 300px;
+    width: 50px;
+  }
+} 

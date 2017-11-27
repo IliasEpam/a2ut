@@ -1,0 +1,20 @@
+@import '../../../scss/variables.scss';
+.logo {
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+
+  &__img {
+    background: url(http://www.freeiconspng.com/uploads/courses-icon-28.png);
+    width: $header-content-height;
+    height: 100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat; 
+    display: inline-block;
+  }
+  &__text {
+    font-size: 24px;
+    margin-left: 20px;
+  }
+}

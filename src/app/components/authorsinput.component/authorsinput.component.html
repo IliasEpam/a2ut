@@ -1,0 +1,14 @@
+<label class="authors-input__label">
+    <span class="authors-input__title">{{inputName}}</span>
+    <div class="authors-input__wrapper">
+        <p *ngFor="let author of authors">
+            <input class="authors-input__input" 
+                type="checkbox"
+                [value]="author"
+                [checked]="isSelected(author)"
+                (change)="onChange($event)"
+            /> {{author}}
+        </p>
+    </div>
+</label>
+

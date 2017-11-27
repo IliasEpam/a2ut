@@ -1,0 +1,6 @@
+<div class="breadcrumbs" *ngIf="items.length > 1">
+  <div *ngFor="let item of items; let i = index" class="breadcrumbs__item">
+    <a *ngIf="!i" routerLink="/courses">{{ item }}</a>
+    <span *ngIf="i" class="breadcrumbs__last">{{ item }}</span>
+  </div>
+</div>

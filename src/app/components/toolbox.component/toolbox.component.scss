@@ -1,0 +1,14 @@
+@import '../../../scss/variables.scss';
+.toolbox {
+  padding: 10px;
+  width: 70%;
+  margin: auto;
+
+  &__search-button{
+    margin-left: 40px;
+  }
+
+  &__add-course{
+    float: right;
+  }
+}

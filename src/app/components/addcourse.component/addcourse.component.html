@@ -1,0 +1,33 @@
+<form class="add-course" [formGroup]="courseForm" (submit)="onsubmit(courseForm)">
+    <label class="add-course__label">
+        <span class="add-course__input-title">Title</span>
+        <input class="add-course__input"
+            type="text"
+            formControlName="title"
+            placeholder="title"
+        />
+        <span class="add-course__error" 
+        *ngIf="courseForm.controls.title.touched && courseForm.controls.title.errors">
+            This field is required
+        </span>
+    </label>
+    <label class="add-course__label">
+        <span class="add-course__input-title">Description</span>
+        <textarea class="add-course__input"
+            formControlName="description"
+            placeholder="description"
+        >
+        </textarea>
+        <span class="add-course__error" 
+        *ngIf="courseForm.controls.description.touched && courseForm.controls.description.errors">
+            This field is required
+        </span>
+    </label>
+    <ment-form-dateinput formControlName="date" [nameOption]="date"></ment-form-dateinput>
+    <ment-form-duration formControlName="duration" [nameOption]="duration"></ment-form-duration>
+    <ment-form-authorsinput formControlName="authors" [nameOption]="authorsName" [authorsList]="authorsList"></ment-form-authorsinput>
+    <div class="add-course__button-wrapper">
+        <button class="add-course__button" [disabled]="courseForm.invalid" type="submit">Save</button>
+        <button class="add-course__button" (click)="goToMain()">Cancel</button>
+    </div>
+</form>

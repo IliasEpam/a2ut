@@ -1,0 +1,17 @@
+@import '../../../scss/variables.scss';
+
+.login {
+  text-align: right;
+
+  &__username {
+    color: blue;
+    line-height: 1.2;
+    cursor: pointer;
+  }
+
+  &__logof {
+    color:red;
+    line-height: 1.2;
+    cursor: pointer;
+  }
+}

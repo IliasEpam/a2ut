@@ -1,0 +1,19 @@
+@import '../../../scss/variables.scss';
+.courses {
+  min-height: calc(100vh - 300px);
+  text-align: center;
+  border-top: 1px solid white;
+
+  &__none {
+    border: 1px solid black;
+    margin: 20px;
+    padding: 10px;
+    display: inline-block;
+    text-align: center;
+    width: 70%;
+  }
+
+  &__more-courses-wrapper {
+    text-align: center;
+  }
+}
