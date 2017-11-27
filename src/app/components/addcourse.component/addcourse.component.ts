@@ -38,7 +38,11 @@ export class AddCourseComponent implements OnInit {
     let sub = this.coursesService.getAuthors().subscribe(
       (authors:[string]) => { this.authorsList = authors; },
       ()=>{},
-      ()=>{sub.unsubscribe()}
+      ()=>{ 
+        if (sub) {
+          sub.unsubscribe()
+        }
+      }
     );
     this.router.params.subscribe((data) => {
       if (data.id) {

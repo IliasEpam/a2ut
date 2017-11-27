@@ -44,7 +44,8 @@ describe('BreadcrumbsComponent', () => {
   });
 
   it ('bs should be visible', () => {
-    component.items[1] = 'someone';
+    component.ngOnInit();
+    coursesService.setBsItem('someone');
     fixture.detectChanges();
     const el: HTMLElement = de.query(By.css('a')).nativeElement;
 
@@ -52,7 +53,8 @@ describe('BreadcrumbsComponent', () => {
   })
 
   it ('bs item should be displayed in template', () => {
-    component.items[1] = 'bs item';
+    component.ngOnInit();
+    coursesService.setBsItem('bs item');
     fixture.detectChanges();
     const el: HTMLElement = de.query(By.css('.breadcrumbs__last')).nativeElement;
 
