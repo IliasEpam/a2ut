@@ -13,7 +13,7 @@ export class CoursesService {
     public coursesUpdateStream = new Subject<boolean>();
     public coursesUpdateStream$ = this.coursesUpdateStream.asObservable();
     public coursesUpdateSub: Subscription;
-    private searchParam: string;
+    public searchParam: string;
 
     public coursesStream = new Subject<ICourse[]>();
     public coursesStream$ = this.coursesStream.asObservable();
@@ -21,7 +21,7 @@ export class CoursesService {
     public bsStream = new Subject<string>();
     public bsStream$ = this.bsStream.asObservable();
 
-    private coursesPage: number = 1;
+    public coursesPage: number = 1;
 
     constructor(private spinnerService: SpinnerService, private http: HttpService) {
         this.coursesUpdateSub = this.coursesUpdateStream$.subscribe(

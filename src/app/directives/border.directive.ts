@@ -10,10 +10,11 @@ export class BorderDirective {
     let currentDate: number = new Date().getTime();
     let createdDate: number = this.dateToNumber(this.createdDate);
     if (createdDate < currentDate && createdDate >= currentDate - 14*24*60*60*1000) {
-      this.el.nativeElement.style.borderColor = 'green';
+      this.el.nativeElement.style.border = '1px solid green';
     } else if (createdDate > currentDate) {
-      this.el.nativeElement.style.borderColor = 'blue';
+      this.el.nativeElement.style.border = '1px solid blue';
     } else {
+      this.el.nativeElement.style.border = '1px solid black';
     }
   }
 
