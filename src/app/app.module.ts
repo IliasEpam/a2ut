@@ -4,8 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from '@angular/router';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { DBModule } from '@ngrx/db';
+import { EffectsModule } from '@ngrx/effects';
 
 import { ROUTES } from './app.routes';
+import { loginReducer } from './reducers/login.reducer';
+import { usernameReducer } from './reducers/username.reducer';
 
 import { AppComponent } from './components/app.component';
 import { HeaderComponent } from './common/header.component';
@@ -42,7 +48,13 @@ import { SearchPipe } from './pipes/search.pipe';
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES),
+    StoreModule.forRoot({
+      isLoggedIn: loginReducer,
+      username: usernameReducer
+    }),
+    EffectsModule.forRoot([]),
+    StoreDevtoolsModule.instrument()
   ],
   providers: [
     CoursesService,

@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "tslint ./src/**/*.ts -t verbose",
     "e2e": "ng e2e",
-    "coverage": "istanbul cover ./test.js"
+    "coverage": "ng test --watch=false --code-coverage=true --reporters=coverage-istanbul"
   },
   "keywords": [],
   "author": "",
@@ -28,8 +28,16 @@
     "@angular/platform-server": "~5.0.0",
     "@angular/router": "~5.0.0",
     "@angular/upgrade": "~5.0.0",
+    "@ngrx/core": "^1.2.0",
+    "@ngrx/db": "^2.1.0",
+    "@ngrx/router-store": "^4.1.1",
+    "@ngrx/store": "^4.1.1",
+    "@ngrx/store-devtools": "^4.1.1",
     "angular-in-memory-web-api": "~0.5.0",
     "core-js": "^2.4.1",
+    "install": "^0.10.2",
+    "ngrx-store-freeze": "^0.2.0",
+    "npm": "^5.6.0",
     "rxjs": "^5.5.0",
     "web-animations-js": "^2.3.1",
     "zone.js": "^0.8.4"

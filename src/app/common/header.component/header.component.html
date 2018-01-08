@@ -1,6 +1,6 @@
 <header class="header">
   <ment-logo></ment-logo>
-  <ment-breadcrumbs *ngIf="isLoggedIn" class="header__breadcrumbs"></ment-breadcrumbs>
-  <ment-login *ngIf="isLoggedIn" class="header__login"></ment-login>
-  <div class="header__login" (click)="toggleAuth()" *ngIf="!isLoggedIn" routerLink="/login"> Login </div>
+  <ment-breadcrumbs *ngIf="isLoggedIn$ | async" class="header__breadcrumbs"></ment-breadcrumbs>
+  <ment-login *ngIf="isLoggedIn$ | async" class="header__login"></ment-login>
+  <div class="header__login" *ngIf="!isLoggedIn$ | async" routerLink="/login"> Login </div>
 </header>

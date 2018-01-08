@@ -1,7 +1,8 @@
 import { Component, Input, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { Subscription } from 'rxjs/Subscription';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'ment-login',
@@ -11,18 +12,10 @@ import { Router } from '@angular/router';
 })
 
 export class LoginComponent {
-  public usernameS: Subscription;
-  public username: string;
+  public username$: Observable<string>;
 
-  constructor(private authService: AuthService, private ref: ChangeDetectorRef, private router: Router) {
-    this.usernameS = authService.userInfoStream$.subscribe(
-      username => {
-        this.username = username;
-        this.ref.markForCheck();
-      });
-  }
-  ngOnInit() {
-    this.authService.getUserInfo();
+  constructor(private authService: AuthService, private ref: ChangeDetectorRef, private router: Router, private store: Store<any>) {
+      this.username$ = this.store.select('username');
   }
 
   logof(): void {
@@ -30,7 +23,4 @@ export class LoginComponent {
     this.router.navigate(['/login']);
   }
 
-  ngOnDestroy() {
-    this.usernameS.unsubscribe();
-  }
  }
