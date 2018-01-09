@@ -2,6 +2,7 @@ import { Component, OnInit, Input, ChangeDetectionStrategy, ChangeDetectorRef } 
 import { CoursesService } from '../../services/courses.service';
 import { SearchPipe } from '../../pipes/search.pipe';
 import { ICourse } from '../../typings/course.component.d';
+import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { SpinnerService } from '../../services/spinner.service';
 
@@ -13,28 +14,30 @@ import { SpinnerService } from '../../services/spinner.service';
 })
 
 export class CoursesComponent implements OnInit {
-  public allCoursesSub: Subscription;
   public courses: ICourse[];
   public sortConfig: string = 'az';
   public sortOptions: any[] = [
     {name: 'Sort by date ↑', value: 'az'},
     {name: 'Sort by date ↓', value: 'za'}
   ];
+  public courses$: Observable<ICourse[]>;
 
   constructor(
     private coursesService: CoursesService, 
     private searchPipe: SearchPipe, 
     private ref: ChangeDetectorRef,
-    private spinnerService: SpinnerService) { }
+    private spinnerService: SpinnerService,
+    private store: Store<any>) {
+      this.courses$ = this.store.select('courses');
+      this.courses$.subscribe(
+        (res) => {
+            this.courses = res;
+            this.ref.markForCheck();
+            this.spinnerService.hideSpinner();
+    });
+    }
 
   ngOnInit() {
-    this.allCoursesSub = this.coursesService.coursesStream$.subscribe(
-      (courses) => {
-        this.courses = courses;
-        this.ref.markForCheck();
-        this.spinnerService.hideSpinner();
-      }
-    );
     this.coursesService.initiateCoursesUpdate();
   };
 
@@ -64,6 +67,5 @@ export class CoursesComponent implements OnInit {
 
   ngOnDestroy() {
     this.coursesService.resetCoursesParams();
-    this.allCoursesSub.unsubscribe();
   }
 }

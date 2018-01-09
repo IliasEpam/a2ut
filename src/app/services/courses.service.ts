@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ICourse } from '../typings/course.component.d';
 import { Observable, Observer, Subject, Subscription } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { UPDATECOURSES } from '../reducers/courses.reducer'
 import { SpinnerService } from './spinner.service';
 import { HttpService } from './http.service';
 import { Http } from '@angular/http';
@@ -15,22 +17,19 @@ export class CoursesService {
     public coursesUpdateSub: Subscription;
     public searchParam: string;
 
-    public coursesStream = new Subject<ICourse[]>();
-    public coursesStream$ = this.coursesStream.asObservable();
-
     public bsStream = new Subject<string>();
     public bsStream$ = this.bsStream.asObservable();
 
     public coursesPage: number = 1;
 
-    constructor(private spinnerService: SpinnerService, private http: HttpService) {
+    constructor(private spinnerService: SpinnerService, private http: HttpService, private store: Store<any>) {
         this.coursesUpdateSub = this.coursesUpdateStream$.subscribe(
             () => {
                 let sub = this.getCourses()
                 .subscribe(
                     (courses) => { 
                         setTimeout(
-                            ( )=>{ this.coursesStream.next(courses); },
+                            ( )=>{ this.store.dispatch({type: UPDATECOURSES, payload: courses})  },
                             1000
                         ) },
                     ()=>{ },

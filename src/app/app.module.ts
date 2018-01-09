@@ -12,6 +12,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { ROUTES } from './app.routes';
 import { loginReducer } from './reducers/login.reducer';
 import { usernameReducer } from './reducers/username.reducer';
+import { coursesReducer } from './reducers/courses.reducer';
 
 import { AppComponent } from './components/app.component';
 import { HeaderComponent } from './common/header.component';
@@ -51,7 +52,8 @@ import { SearchPipe } from './pipes/search.pipe';
     RouterModule.forRoot(ROUTES),
     StoreModule.forRoot({
       isLoggedIn: loginReducer,
-      username: usernameReducer
+      username: usernameReducer,
+      courses: coursesReducer
     }),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument()
